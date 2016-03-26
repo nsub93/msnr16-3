@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{gantt}
+\usepackage{tabu}
+
+\begin{document}
+
+\title{Algoritmi za detekciju plagijarizma 1 (opis i implementacija)}
+\author{Nemanja Subotić i Igor Rodić}
+\date{18. Mart, 2016.}
+\maketitle
+
+U okviru seminarskog rada iz predmeta Metodologija naučnog i stručnog rada, obradićemo temu detekcije plagijarizama i algoritama koji je implementiraju. Sledi dinamika plana izrade:
+\newline
+
+\begin{tabu} to 0.8\textwidth { | >{\centering\arraybackslash} p{0.3cm} |  >{\centering\arraybackslash} p{2.5cm} |  >{\centering\arraybackslash} p{2cm} |  >{\centering\arraybackslash} p{7cm} | }
+ \hline
+ id & naziv & rok & opis \\
+ \hline
+ 1 & Istraživanje & 20. Mart & Istraživanje teme, pregledanje literature i pronalazak potencijalnih algoritama uz implementaciju, pronalaženje potrebnih alata \\
+ \hline
+ 2 & Odabir \newline algoritama & 23. Mart & Određivanje algorit(a)ma za implementaciju \\
+ \hline
+ 3 & Podela posla & 25. Mart & Podela posla i pravljenje repozitorijuma na github-u, određivanje minimalnog broja sati za rad na projetku (trodnevno ili nedeljno) \\
+ \hline
+ 4 & Implementacija & 4. April & Implementirano minimum 50\% rada, uključujući i algoritme \\
+ \hline
+ 5 & Nastavak \newline implementacije & 13. April & Urađen veći deo implemetacije, kao i 70-80\% tekstualnog dela rada \\
+ \hline
+ 6 & Finalizacija \newline implementacije & 26. April & Završena implementacija \\
+ \hline
+ 7 & Testiranje i \newline refaktorisanje & 30. April & Testiranje, refaktorisanje koda i završavanje tekstualnog dela rada \\
+\hline
+\end{tabu}
+\newline
+\newline
+\newline
+
+Kolokvijumska nedelja, ostale fakultetske obaveze (drugi projekti, testovi...), kao i posao mogu uticati na kašnjenje. Kontuitetom, merenjem i ozbiljnošću svesti kašnjenja na minimum.
+Svakodnevne kratke diskusije o seminaru, kosultovanje sa predmetnim nastavnikom u slučaju većih nedoumica.
+\newline
+
+Metrike:
+\begin{itemize}
+\item Praćenje napretka brojem implementiranih funkcionalnih jedinica 
+\item Mera napora - broj planiranih i ostvarenih radnih sati u odnosu na vreme
+\end{itemize}
+
+\begin{gantt}{7}{7}
+    \begin{ganttitle}
+      \titleelement{Mart}{3}
+      \titleelement{April}{4}
+    \end{ganttitle}
+    \begin{ganttitle}
+      \titleelement{19}{1}
+      \titleelement{23}{1}
+      \titleelement{25}{1}
+      \titleelement{4}{1}
+      \titleelement{13}{1}
+      \titleelement{26}{1}
+      \titleelement{30}{1}
+    \end{ganttitle}
+    \ganttbar{Odabir algoritama}{0}{1}
+    \ganttbarcon{Podela posla}{1}{1}
+	\ganttbarcon{Rad na tekstualnom delu}{2}{4}    
+	\ganttcon{2}{3}{2}{5}
+    \ganttbar{Implementacija algoritama}{2}{3}
+    \ganttbarcon{Refaktorisanje i testiranje}{5}{2}
+\end{gantt}
+\center gant dijagram plana izrade
+   
+\end{document}
+
+\end{document}
