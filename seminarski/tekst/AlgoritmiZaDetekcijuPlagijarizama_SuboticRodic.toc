@@ -1,0 +1,15 @@
+\select@language {serbian}
+\contentsline {section}{\numberline {1}Uvod}{2}{section.1}
+\contentsline {section}{\numberline {2}Slike i tabele}{2}{section.2}
+\contentsline {section}{\numberline {3}Prvi naslov}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}Prvi podnaslov}{3}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Drugi podnaslov}{3}{subsection.3.2}
+\contentsline {section}{\numberline {4}Drugi naslov}{4}{section.4}
+\contentsline {subsection}{\numberline {4.1}... podnaslov}{4}{subsection.4.1}
+\contentsline {section}{\numberline {5}n-ti naslov}{4}{section.5}
+\contentsline {subsection}{\numberline {5.1}... podnaslov}{4}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}... podnaslov}{4}{subsection.5.2}
+\contentsline {section}{\numberline {6}Poslednji naslov}{4}{section.6}
+\contentsline {section}{\numberline {7}Zaklju\IeC {\v c}ak}{4}{section.7}
+\contentsline {section}{Literatura}{4}{section.7}
+\contentsline {section}{\numberline {A}Dodatak}{4}{appendix.A}
