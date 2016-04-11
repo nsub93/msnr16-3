@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.8)  10 APR 2016 23:51
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.8)  11 APR 2016 23:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -735,56 +735,48 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 (./AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 6.
+(Font)              <9> on input line 5.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 6.
+(Font)              <5> on input line 5.
 )
 \tf@toc=\write4
 \openout4 = `AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.toc'.
 
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 48.
- [2]
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
-
- []
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 110.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 80.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 110.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 80.
  [3]
-(./AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 152.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 152.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 114.
+
+(./AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.bbl [4])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 148.
+ [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 148.
 
 (./AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 152.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 152.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 148.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 148.
 Package rerunfilecheck Info: File `AlgoritmiZaDetekcijuPlagijarizama_SuboticRod
 ic.out' has not changed.
-(rerunfilecheck)             Checksum: 9817747613EB5371E04520232B01B85E;1642.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 152.
+(rerunfilecheck)             Checksum: 14EA886EDCB666A492C035C30CD8FE4F;1764.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 148.
  ) 
 Here is how much of TeX's memory you used:
- 11192 strings out of 494474
- 152863 string characters out of 6172704
- 225016 words of memory out of 5000000
- 14296 multiletter control sequences out of 15000+600000
+ 11190 strings out of 494474
+ 152875 string characters out of 6172704
+ 225025 words of memory out of 5000000
+ 14294 multiletter control sequences out of 15000+600000
  14631 words of font info for 35 fonts, out of 8000000 for 9000
  452 hyphenation exceptions out of 8191
- 29i,8n,32p,878b,983s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,8n,32p,1122b,983s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/igor/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1200.600pk> </home/igor
 /.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lati0900.600pk> </home/igor/.texmf-var/fo
 nts/pk/ljfour/lh/lh-t2a/larm1000.600pk> </home/igor/.texmf-var/fonts/pk/ljfour/
@@ -794,11 +786,11 @@ home/igor/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm0900.600pk> </home/igor/.tex
 mf-var/fonts/pk/ljfour/lh/lh-t2a/larm1728.600pk></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmsy9.pfb>
-Output written on AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.pdf (4 pages, 
-108376 bytes).
+Output written on AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.pdf (5 pages, 
+111015 bytes).
 PDF statistics:
- 424 PDF objects out of 1000 (max. 8388607)
- 134 compressed objects within 2 object streams
+ 430 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
  30 named destinations out of 1000 (max. 500000)
- 89 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

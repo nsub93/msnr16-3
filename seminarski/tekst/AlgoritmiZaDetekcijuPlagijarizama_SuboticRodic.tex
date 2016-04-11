@@ -22,7 +22,7 @@
 \title{Algoritmi za detekciju plagijarizma \\ \small{Seminarski rad u okviru kursa\\Metodologija stručnog i naučnog rada\\ Matematički fakultet}}
 
 \author{Nemanja Subotić, Igor Rodić \\ suboticnemanja93@gmail.com, igorrodic@gmail.com}
-\date{9.~april 2016.}
+\date{11.~april 2016.}
 \maketitle
 
 \abstract{
@@ -32,40 +32,16 @@ Sa pojavom modernih tehnologija, pre svega interneta, svet je postao u velikoj m
 
 \newpage
 
-\section{Pomoc}
-\label{sec:pomoc} 
-
-Ovde pišem uvodni tekst.
-Ovde pišem uvodni tekst. 
-Ovde pišem uvodni tekst. 
-Ovde pišem uvodni tekst. 
-
-\begin{primer} I tabele treba da budu u svom okruženju, i na njih je neophodno referisati se u tekstu. Na primer, u tabeli \ref{tab:tabela1} su prikazana različita poravnanja u tabelama.
-
-\begin{table}[h!]
-\begin{center}
-\caption{Razlčita poravnanja u okviru iste tabele ne treba koristiti jer su nepregledna.}
-\begin{tabular}{|c|l|r|} \hline
-centralno poravnanje& levo poravnanje& desno poravnanje\\ \hline
-a &b&c\\ \hline
-d &e&f\\ \hline
-\end{tabular}
-\label{tab:tabela1}
-\end{center}
-\end{table}
-
-\end{primer}
-
-
 \section{Uvod}
 \label{sec:uvod}
 
 U ovom radu, pored detekcije plagijarizama teksta, bavićemo se i  detekcijom plagijarizama programskog koda, koji je za nas informatičare posebno interesantan.
+\par Kao što je ranije navedeno, detektovanje plagijarizama programskog koda je oblast koja nas informatičare posebno intrigira. Svako od nas je, u jednom trenutku, svesno ili nesvesno, plagirao tudj kod. Provera plagijarizma programskog koda je nešto što profesori iz oblasti informatike rade svakodnevno, ali još se nije došlo do precizne definicije šta to tačno čini plagijarizam programskog koda. \cite{cosma} Plagijarizam programskog koda javlja se kada je kod kopiran i/ili izmenjen bez prethodne konsultacije sa autorom. \cite{culwinmacleodlancaster}
 
 \section{Ideje i pristupi}
 \label{sec:ideje i pristupi}
 
-Prva stvar o kojoj treba diskutovati jeste klasifikacija sistema za detekciju plagijarizama. Ona je, prirodno, za svakoga drugačija. Osnovna podela, prema Mozgovoy-u deli pomenute sisteme na dve podgrupe, na sisteme koji prave "otisak prsta" (eng.~{\em fingerprint}) programa i na sisteme koji porede sadržaj.
+Prva stvar o kojoj treba diskutovati jeste klasifikacija sistema za detekciju plagijarizama. Ona je, prirodno, za svakoga drugačija. Osnovna podela, prema Mozgovoy-u \cite{mozgovoy} deli pomenute sisteme na dve podgrupe, na sisteme koji prave "otisak prsta" (eng.~{\em fingerprint}) programa i na sisteme koji porede sadržaj.
 
 %(\ref{fig:klasifikacija}) 
 %\begin{figure}[h!]
@@ -97,14 +73,8 @@ Drveta parsiranja sa druge strane očuvavaju strukturu fajla, kako tekstualnog (
 \section{Sakrivanje plagijarizma}
 \label{sec:sakrivanje plagijarizma}
 
-\subsection{Tekst}
-\label{subsec:tekst}
-
-\subsection{Programski kod}
-\label{subsec:programski kod}
-
-Kao što je ranije navedeno, detektovanje plagijarizama programskog koda je oblast koja nas informatičare posebno intrigira. Svako od nas je, u jednom trenutku, svesno ili nesvesno, plagirao tudj kod. Provera plagijarizma programskog koda je nešto što profesori iz oblasti informatike rade svakodnevno, ali još se nije došlo do precizne definicije šta to tačno čini plagijarizam programskog koda. Plagijarizam programskog koda javlja se kada je kod kopiran i/ili izmenjen bez prethodne konsultacije sa autorom. \cite{culwinmacleodlancaster} \newline
-\par Definisani su i nivoi modifikacije programskog koda, koji mogu da pomognu bližem razumevanju pojma, tj. da daju uvid u načine na koje plagijarizam programskog koda može da bude sakriven:
+U ovoj sekciji biće reči o tehnikama sakrivanja plagijarizama, sa ciljem težeg otkrivanja, kao i tehnikama za njihovo otkrivanje i prevazilaženje.
+\par Kada je u pitanju tekst neke od tehnika za sakrivanje plagijarizma su parafraziranje, korišćenje sinonima, prevođenje na drugi jezik, pa zatim nazad u početni itd. Kada je u pitanju programski kod definisani su nivoi modifikacije koji daju uvid u načine na koje plagijarizam može da bude sakriven \cite{joyluck}:
 
 \begin{itemize}
 \item Izmena komentara
@@ -119,12 +89,36 @@ Kao što je ranije navedeno, detektovanje plagijarizama programskog koda je obla
 \item Menjanje poziva funkcije sa telom funkcije
 \end{itemize}
 
-Navedene modifikacije prevazilaze se pretprocesiranjem, konkretno tokenizacijom i parametrizovanim poklapanjem. Tokenizacija pretvara programski kod u niz tokena, time ga spuštajući na gradivni nivo (predstavljajući promenljive, pozive funkcija, naredbe itd.) i eliminišući većinu načina skrivanja. Složenost procesa tokenizacije je linearna, stoga ona ne utiče na kompleksnost finalnog algoritma, medjutim, samim procesom mogu da se izgube važne informacije o sličnostima dva programa. U cilju očuvanja te sličnosti tokenizator se koristi zajedno sa parametrizovanim poklapanjem. Parametrizovano poklapanje smatra dva koda identičnim ako jedan može da se dobije iz drugog primenom konačnog broja zamena identifikatora.
+Navedene tehnike sakrivanja plagijarizama prevazilaze se pretprocesiranjem. Pretprocesiranje predstavlja modifikovanje fajla pre same primene algoritma za detekciju plagijarizma. U sekcijama \ref{subsec:pretprocesiranje teksta} i \ref{subsec:pretprocesiranje programskog koda} opisane su tehnike pretprocesiranja teksta, i programskog koda.
+
+\subsection{Pretprocesiranje teksta}
+\label{subsec:pretprocesiranje teksta}
+
+Tehnike pretprocesiranja teksta su WSD i Thesauri, i parseri. Menjanje reči sinonimima skoro je nemoguće otkriti bez pomoći računara. Na njima se taj problem rešava tokenizacijom, jedan od takvih softvera je i WordNet(Thesaurus). Ali, pre nego što se uradi zamena svih sinonima jednom rečju, prvo mora biti primenjem WSD (eng. ~{\em Word Sense Disambiguation}) metod koji određuje značenje reči u zadatom kontekstu, i tek onda može da bude primenjen tokenizator. Još jedna primena WSD metoda je pri otkrivanju plagijarizma ideje, kada se WSD koristi u kombinaciji sa drvetom konceptualnih klasa, ulazni fajl salje se na semantičku analizu i dobija se lista klasa, umesto originalnih reči. Lista se dalje procenjuje pomoću uobičajnih algoritama detekcije plagijarizama. \par Parseri se, sa druge strane, koriste kada je izmenjena struktura teksta (izmenjen redosled reči itd.). Oni dele rečenice na manje sekvence koji oslikavaju strukturu teksta, npr. parser može da prepozna homogene delove rečenice i da ih sortira leksikografski.
+
+\subsection{Pretprocesiranje programskog koda}
+\label{subsec:pretprocesiranje programskog koda}
+
+Pretprocesiranje programskog koda deli se na dve tehnike, tokenizaciju i parametrizovano poklapanje. Tokenizacija pretvara programski kod u niz tokena, time ga spuštajući na gradivni nivo (predstavljajući promenljive, pozive funkcija, naredbe itd.) i eliminišući većinu načina skrivanja. Složenost procesa tokenizacije je linearna, stoga ona ne utiče na kompleksnost finalnog algoritma, medjutim, samim procesom mogu da se izgube važne informacije o sličnostima dva programa. U cilju očuvanja te sličnosti tokenizator se koristi zajedno sa parametrizovanim poklapanjem. Parametrizovano poklapanje smatra dva koda identičnim ako jedan može da se dobije iz drugog primenom konačnog broja zamena identifikatora.
 
 \section{Implementacija algoritma za detekciju plagijarizama tekst}
 \label{sec:implementacija algoritma za detekciju plagijarizama tekst}
 
 Stopword n-grams.
+
+I tabele treba da budu u svom okruženju, i na njih je neophodno referisati se u tekstu. Na primer, u tabeli \ref{tab:tabela1} su prikazana različita poravnanja u tabelama.
+
+\begin{table}[h!]
+\begin{center}
+\caption{Razlčita poravnanja u okviru iste tabele ne treba koristiti jer su nepregledna.}
+\begin{tabular}{|c|l|r|} \hline
+centralno poravnanje& levo poravnanje& desno poravnanje\\ \hline
+a &b&c\\ \hline
+d &e&f\\ \hline
+\end{tabular}
+\label{tab:tabela1}
+\end{center}
+\end{table}
 
 
 \section{Implementacija algoritma za detekciju plagijarizama programskog koda}
@@ -135,7 +129,7 @@ Diff.
 \section{Zaključak}
 \label{sec:zakljucak}
 
-Zakljucak. 
+Zaključak. 
 
 
 \addcontentsline{toc}{section}{Literatura}
