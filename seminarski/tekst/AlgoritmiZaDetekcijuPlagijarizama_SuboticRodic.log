@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.8)  11 APR 2016 23:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.20)  15 APR 2016 03:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.tex
 (./AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 11 languages loaded.
+Babel <3.9h> and hyphenation patterns for 35 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -513,6 +513,95 @@ File: listings.cfg 2013/08/26 1.5b listings configuration
 ))
 Package: listings 2013/08/26 1.5b (Carsten Heinz)
 
+(/usr/share/texlive/texmf-dist/tex/latex/mh/mathtools.sty
+Package: mathtools 2013/02/12 v1.13 mathematical typesetting tools
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count96
+\calc@Bcount=\count97
+\calc@Adimen=\dimen109
+\calc@Bdimen=\dimen110
+\calc@Askip=\skip43
+\calc@Bskip=\skip44
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count98
+\calc@Cskip=\skip45
+)
+(/usr/share/texlive/texmf-dist/tex/latex/mh/mhsetup.sty
+Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks18
+\ex@=\dimen111
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen112
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count99
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count100
+\leftroot@=\count101
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count102
+\DOTSCASE@=\count103
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen113
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count104
+\c@MaxMatrixCols=\count105
+\dotsspace@=\muskip11
+\c@parentequation=\count106
+\dspbrk@lvl=\count107
+\tag@help=\toks19
+\row@=\count108
+\column@=\count109
+\maxfields@=\count110
+\andhelp@=\toks20
+\eqnshift@=\dimen114
+\alignsep@=\dimen115
+\tagshift@=\dimen116
+\tagwidth@=\dimen117
+\totwidth@=\dimen118
+\lineht@=\dimen119
+\@envbody=\toks21
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count111
+\l_MT_multwidth_dim=\dimen120
+\origjot=\skip49
+\l_MT_shortvdotswithinadjustabove_dim=\dimen121
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen122
+\l_MT_above_intertext_sep=\dimen123
+\l_MT_below_intertext_sep=\dimen124
+\l_MT_above_shortintertext_sep=\dimen125
+\l_MT_below_shortintertext_sep=\dimen126
+)
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2013/12/03 3.9h The Babel package
 
@@ -521,8 +610,8 @@ Language: english 2012/08/20 v3.3p English support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2013/12/03 3.9h Babel common definitions
-\babel@savecnt=\count96
-\U@D=\dimen109
+\babel@savecnt=\count112
+\U@D=\dimen127
 )
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
@@ -589,16 +678,16 @@ Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
-\@linkdim=\dimen110
-\Hy@linkcounter=\count97
-\Hy@pagecounter=\count98
+\@linkdim=\dimen128
+\Hy@linkcounter=\count113
+\Hy@pagecounter=\count114
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count99
+\Hy@SavedSpaceFactor=\count115
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -617,12 +706,12 @@ Package hyperref Info: Plain pages OFF on input line 4458.
 Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
-\c@Hy@tempcnt=\count100
+\c@Hy@tempcnt=\count116
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen111
-\Fld@menulength=\count101
-\Field@Width=\dimen112
-\Fld@charsize=\dimen113
+\XeTeXLinkMargin=\dimen129
+\Fld@menulength=\count117
+\Field@Width=\dimen130
+\Fld@charsize=\dimen131
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -632,64 +721,64 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6320.
 Package hyperref Info: PDF/A mode OFF on input line 6325.
 LaTeX Info: Redefining \ref on input line 6365.
 LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count102
-\c@Item=\count103
-\c@Hfootnote=\count104
+\Hy@abspage=\count118
+\c@Item=\count119
+\c@Hfootnote=\count120
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
-\Fld@listcount=\count105
-\c@bookmark@seq@number=\count106
+\Fld@listcount=\count121
+\c@bookmark@seq@number=\count122
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip43
+\Hy@SectionHShift=\skip50
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 15.
-\c@primer=\count107
-\c@definicija=\count108
+Package hyperref Info: Option `colorlinks' set `true' on input line 16.
+\c@primer=\count123
+\c@definicija=\count124
 
 (./AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.aux)
 \openout1 = `AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count109
-\scratchdimen=\dimen114
-\scratchbox=\box28
-\nofMPsegments=\count110
-\nofMParguments=\count111
-\everyMPshowfont=\toks18
-\MPscratchCnt=\count112
-\MPscratchDim=\dimen115
-\MPnumerator=\count113
-\makeMPintoPDFobject=\count114
-\everyMPtoPDFconversion=\toks19
+\scratchcounter=\count125
+\scratchdimen=\dimen132
+\scratchbox=\box30
+\nofMPsegments=\count126
+\nofMParguments=\count127
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count128
+\MPscratchDim=\dimen133
+\MPnumerator=\count129
+\makeMPintoPDFobject=\count130
+\everyMPtoPDFconversion=\toks24
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -705,9 +794,9 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count115
-\AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring ON on input line 20.
+\c@lstlisting=\count131
+\AtBeginShipoutBox=\box31
+Package hyperref Info: Link coloring ON on input line 21.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -715,82 +804,142 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count116
+\c@section@level=\count132
 )
-LaTeX Info: Redefining \ref on input line 20.
-LaTeX Info: Redefining \pageref on input line 20.
-LaTeX Info: Redefining \nameref on input line 20.
+LaTeX Info: Redefining \ref on input line 21.
+LaTeX Info: Redefining \pageref on input line 21.
+LaTeX Info: Redefining \nameref on input line 21.
 
 (./AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.out)
 (./AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.out)
 \@outlinefile=\write3
 \openout3 = `AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.out'.
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 27.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 27.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 27.
 
-(./AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 5.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 5.
-)
+Overfull \hbox (0.55263pt too wide) in paragraph at lines 30--31
+\T2A/cmr/m/n/9 ra^^Gcunarski al-go-ritmi za de-tek-ciju pla-gi-ja-ri-zma, jer j
+e , s ob-zi-rom na koli^^Gcinu
+ []
+
+(./AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.toc)
 \tf@toc=\write4
 \openout4 = `AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.toc'.
 
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 80.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (2.02435pt too wide) in paragraph at lines 50--51
+\T2A/cmr/m/n/9 rak-te-ri-zuje du^^Gzi do-ku-ment. On mo^^Gze da se do-bije pri-
+me-nom he^^Gs (eng. \T2A/cmr/m/it/9 hash\T2A/cmr/m/n/9 )
+ []
 
+
+Overfull \hbox (6.52545pt too wide) in paragraph at lines 50--51
+\T2A/cmr/m/n/9 funk-cije na do-ku-ment, ali obi^^Gcno se ko-ri-sti niz nu-meri^
+^Gckih atri-buta (prose^^Gcan
+ []
+
+
+LaTeX Warning: Citation `mozgovoyetal' on page 2 undefined on input line 61.
+
+
+LaTeX Warning: Citation `wise' on page 2 undefined on input line 65.
+
+
+LaTeX Warning: Citation `wise2' on page 2 undefined on input line 65.
+
+[2]
+
+LaTeX Warning: Citation `gitchelltran' on page 3 undefined on input line 66.
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 74.
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 80.
- [3]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 114.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
 
-(./AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.bbl [4])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 148.
- [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 148.
 
-(./AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 148.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 148.
-Package rerunfilecheck Info: File `AlgoritmiZaDetekcijuPlagijarizama_SuboticRod
-ic.out' has not changed.
-(rerunfilecheck)             Checksum: 14EA886EDCB666A492C035C30CD8FE4F;1764.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 148.
+LaTeX Warning: Citation `fellbaum' on page 3 undefined on input line 91.
+
+[3]
+Overfull \hbox (6.20332pt too wide) in paragraph at lines 105--106
+[]\T2A/cmr/m/n/9 Stopre^^Gci su se po-ka-zale ve-oma ko-ri-sne u istra^^Gzivanj
+u tek-sta u slu^^Gcajevima
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4]
+
+LaTeX Warning: Command \textquoteleft invalid in math mode on input line 145.
+
+[5] <slika1.PNG, id=133, 395.22656pt x 221.32687pt>
+File: slika1.PNG Graphic file (type png)
+ <use slika1.PNG>
+Package pdftex.def Info: slika1.PNG used on input line 163.
+(pdftex.def)             Requested size: 197.6128pt x 110.66315pt.
+
+<slika2.PNG, id=135, 391.4625pt x 218.31563pt>
+File: slika2.PNG Graphic file (type png)
+ <use slika2.PNG>
+Package pdftex.def Info: slika2.PNG used on input line 171.
+(pdftex.def)             Requested size: 195.73076pt x 109.15753pt.
+ [6 <./slika1.PNG> <./slika2.PNG>] (./AlgoritmiZaDetekcijuPlagijarizama_Subotic
+Rodic.bbl
+[7])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 222.
+ [8]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 222.
+ (./AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 222.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 222.
+
+
+Package rerunfilecheck Warning: File `AlgoritmiZaDetekcijuPlagijarizama_Subotic
+Rodic.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `AlgoritmiZaDetekcijuPlagijarizama_S
+uboticRodic.out':
+(rerunfilecheck)             Before: 5B89E0858DBB7893D727E8C26858345B;2344
+(rerunfilecheck)             After:  9EDE85C44934FA4954C4279F11E5DD3D;2349.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 222.
  ) 
 Here is how much of TeX's memory you used:
- 11190 strings out of 494474
- 152875 string characters out of 6172704
- 225025 words of memory out of 5000000
- 14294 multiletter control sequences out of 15000+600000
- 14631 words of font info for 35 fonts, out of 8000000 for 9000
- 452 hyphenation exceptions out of 8191
- 29i,8n,32p,1122b,983s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/igor/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1200.600pk> </home/igor
-/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lati0900.600pk> </home/igor/.texmf-var/fo
-nts/pk/ljfour/lh/lh-t2a/larm1000.600pk> </home/igor/.texmf-var/fonts/pk/ljfour/
-lh/lh-t2a/labx1440.600pk> </home/igor/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx
-0900.600pk> </home/igor/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1200.600pk> </
-home/igor/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm0900.600pk> </home/igor/.tex
-mf-var/fonts/pk/ljfour/lh/lh-t2a/larm1728.600pk></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy9.pfb>
-Output written on AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.pdf (5 pages, 
-111015 bytes).
+ 12353 strings out of 493917
+ 169367 string characters out of 6157788
+ 249829 words of memory out of 5000000
+ 15445 multiletter control sequences out of 15000+600000
+ 16329 words of font info for 42 fonts, out of 8000000 for 9000
+ 788 hyphenation exceptions out of 8191
+ 33i,8n,32p,870b,997s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/nemanja/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1200.600pk> </home/n
+emanja/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lati0900.600pk> </home/nemanja/.tex
+mf-var/fonts/pk/ljfour/lh/lh-t2a/larm1000.600pk> </home/nemanja/.texmf-var/font
+s/pk/ljfour/lh/lh-t2a/labx1440.600pk> </home/nemanja/.texmf-var/fonts/pk/ljfour
+/lh/lh-t2a/labx0900.600pk> </home/nemanja/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/
+larm1200.600pk> </home/nemanja/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm0900.60
+0pk> </home/nemanja/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1728.600pk></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmti9.pfb>
+Output written on AlgoritmiZaDetekcijuPlagijarizama_SuboticRodic.pdf (8 pages, 
+183572 bytes).
 PDF statistics:
- 430 PDF objects out of 1000 (max. 8388607)
- 137 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 520 PDF objects out of 1000 (max. 8388607)
+ 195 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 500000)
+ 123 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -4,8 +4,12 @@
 \contentsline {section}{\numberline {3}Sakrivanje plagijarizma}{3}{section.3}
 \contentsline {subsection}{\numberline {3.1}Pretprocesiranje teksta}{3}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Pretprocesiranje programskog koda}{4}{subsection.3.2}
-\contentsline {section}{\numberline {4}Implementacija algoritma za detekciju plagijarizama tekst}{4}{section.4}
-\contentsline {section}{\numberline {5}Implementacija algoritma za detekciju plagijarizama programskog koda}{4}{section.5}
-\contentsline {section}{\numberline {6}Zaklju\IeC {\v c}ak}{4}{section.6}
-\contentsline {section}{Literatura}{4}{section.6}
-\contentsline {section}{\numberline {A}Dodatak}{5}{appendix.A}
+\contentsline {section}{\numberline {4}Implementacija algoritma za detekciju plagijarizama teksta}{4}{section.4}
+\contentsline {subsection}{\numberline {4.1}Opis algoritma}{4}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Odredjivanje kandidata}{5}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Odredjivanje granice delova}{5}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Odredjivanje koeficijenta plagijarizma}{7}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Prednosti, rezultati i parametri}{7}{subsection.4.5}
+\contentsline {section}{\numberline {5}Zaklju\IeC {\v c}ak}{7}{section.5}
+\contentsline {section}{Literatura}{7}{section.5}
+\contentsline {section}{\numberline {A}Dodatak}{8}{appendix.A}
