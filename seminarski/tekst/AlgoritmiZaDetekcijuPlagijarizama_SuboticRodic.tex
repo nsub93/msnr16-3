@@ -8,6 +8,7 @@
 \usepackage[utf8]{inputenc} % make weird characters work
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{mathtools}
 
 \usepackage[english,serbian]{babel}
 
@@ -26,7 +27,7 @@
 \maketitle
 
 \abstract{
-Sa pojavom modernih tehnologija, pre svega interneta, svet je postao u velikoj meri izložen raznim oblicima zloupotreba. Jednu od tih zloupotreba predstavljaju plagijarizmi. Zbog ogromne količine podataka koja je dostupna velikoj većini ljudske civilizacije, lakše je nego ikada naći potrebne informacije o bilo čemu što nas zanima, ali to sa sobom nosi i rizike. Jer skoro sa istom lakoćom bilo ko može te informacije da iskopira (preformuliše, ukrade ideju) i prezentuje kao svoje delo. Prirodno je potražiti odgovor na ovo pitanje u kompjuterskim algoritmima, jer bi taj zadatak za čoveka bio previše obiman. Shodno tome, razvijeni su mnogi algoritmi za detekciju raznih vrsta plagijarizama, koji imaju za cilj automatizovanje procesa otkrivanja plagijata. Njima ćemo se detaljnije baviti u ovom radu.}
+Sa pojavom modernih tehnologija, pre svega interneta, svet je postao u velikoj meri izložen raznim oblicima zloupotreba. Jednu od tih zloupotreba predstavljaju plagijarizmi. Osnovnu zaštitu predstavljaju računarski algoritmi za detekciju plagijarizma, jer je , s obzirom na količinu dostupnih podataka, za čoveka u velikom broju slučajeva to nemoguće. Rad prikazuje osnovne ideje i pristupe pri impelementaciji ovih algoritama, kao i detaljni opis i implementaciju algoritma za detekciju plagijarizma tekstova na engleskom. Ovaj algoritam zastupa jedan neobičan pristup i u praksi daje dosta dobre rezultate,dok u nekim slučajevima čak i najbolje. }
 
 \tableofcontents
 
@@ -35,24 +36,18 @@ Sa pojavom modernih tehnologija, pre svega interneta, svet je postao u velikoj m
 \section{Uvod}
 \label{sec:uvod}
 
-U ovom radu, pored detekcije plagijarizama teksta, bavićemo se i  detekcijom plagijarizama programskog koda, koji je za nas informatičare posebno interesantan.
-\par Kao što je ranije navedeno, detektovanje plagijarizama programskog koda je oblast koja nas informatičare posebno intrigira. Svako od nas je, u jednom trenutku, svesno ili nesvesno, plagirao tudj kod. Provera plagijarizma programskog koda je nešto što profesori iz oblasti informatike rade svakodnevno, ali još se nije došlo do precizne definicije šta to tačno čini plagijarizam programskog koda. \cite{cosma} Plagijarizam programskog koda javlja se kada je kod kopiran i/ili izmenjen bez prethodne konsultacije sa autorom. \cite{culwinmacleodlancaster}
+Postoje mnoge definicije plagijarizma, nijedna nije sasvim precizna, pre svega zato što plagijarizam predstavlja nešto drugo za svakoga od nas. Definicija koja stoji u Kembridžovom rečniku (eng. ~{\em Cambridge English Dictionary}) glasi:
+\begin{definicija}
+Plagirati: koristiti tuđe ideje i praviti se da su vaše.
+\end{definicija}
+Osnovu za detekciju plagijarizama predstavljaju računari i efikasni algoritmi koji su u tu svrhu implementirani. U ovom radu predstavili smo čitaocu osnove pisanja algoritama za njihovu detekciju, kao i detaljniji opis algoritma za detekciju plagijarizma teksta, zasnovanog na n-gramima. Prvo smo opisali ideje i pristupe, kao i klasifikaciju algoritama za detekciju plagijarizama (\ref{sec:ideje i pristupi}). Zatim smo u sledećoj sekciji opisali moguće načine sakrivanja plagijarizma, kao i načine da te metode budu otkrivene (\ref{sec:sakrivanje plagijarizma}). Na kraju, implementirali smo algoritam teksta zasnovan na n-gramima (\ref{sec:implementacija algoritma za detekciju plagijarizama tekst}).
 
 \section{Ideje i pristupi}
 \label{sec:ideje i pristupi}
 
-Prva stvar o kojoj treba diskutovati jeste klasifikacija sistema za detekciju plagijarizama. Ona je, prirodno, za svakoga drugačija. Osnovna podela, prema Mozgovoy-u \cite{mozgovoy} deli pomenute sisteme na dve podgrupe, na sisteme koji prave "otisak prsta" (eng.~{\em fingerprint}) programa i na sisteme koji porede sadržaj.
+Prva stvar o kojoj treba diskutovati jeste klasifikacija sistema za detekciju plagijarizama. Ona je, prirodno, za svakoga drugačija. Osnovna podela, prema Mozgovoy-u \cite{mozgovoy} deli pomenute sisteme na dve podgrupe, na sisteme koji prave "otisak prsta" (eng.~{\em fingerprint}) dokumenta i na sisteme koji porede sadržaj.
 
-%(\ref{fig:klasifikacija}) 
-%\begin{figure}[h!]
-%\begin{center}
-%\includegraphics[scale=0.5]{klasifikacija.jpg}
-%\end{center}
-%\caption{Klasifikacija sistema za detekciju plagijarizama programskog koda}
-%\label{fig:klasifikacija}
-%\end{figure}
-
-\par "Otiska prsta" programa predstavlja kratku sekvencu bajtova koja karakterizuje duži fajl. On može da se dobije primenom heš (eng.~{\em hash}) funkcije na fajl, ali obično se koristi niz numeričkih atributa (prosečan broj reči po liniji, prosečan broj ključnih reči itd.), i zatim se pomoću funkcije radzdaljine računa stepen različitosti dva fajla. Ova tehnika se danas retko koristi jer čak i male promene mogu da rezultuju potpuno drugačijim "otiscima".
+\par "Otisak prsta" dokumenta predstavlja kratku sekvencu bajtova koja karakterizuje duži dokument. On može da se dobije primenom heš (eng.~{\em hash}) funkcije na dokument, ali obično se koristi niz numeričkih atributa (prosečan broj reči po liniji, prosečan broj ključnih reči itd.), i zatim se pomoću funkcije radzdaljine računa stepen različitosti dva dokumenta. Ova tehnika se danas retko koristi jer čak i male promene mogu da rezultuju potpuno drugačijim "otiscima".
 \par Poređenje sadržaja predstavlja osnovu za veliku većinu sistema za detekciju plagijarizama. Ono je generalno zasnovano na Manberovoj definiciji sličnosti i deli se na dve podvrste. One su poredjenje stringova i drveta parsiranja.
 \begin{definicija}
 Manberova definiciji sličnosti: Kažemo da su dva fajla slična ako sadrže značajan broj istih podniski koje nisu prekratke.
@@ -63,13 +58,12 @@ FOR EACH collection file F
   FOR EACH collection file G, F =/= G
     Calculate similarity between F and G
 \end{lstlisting}
-dok se funkcija za određivanje sličnosti menja. Kada pričamo o poređenju stringova pod time podrazumevamo poređenje fajlova, koji se tretiraju kao veliki stringovi. Logično, ovaj način poređenja ne čuva strukturu fajlova, kao ni programskog koda. Algoritmi koji koriste ovaj način detekcije su: FPDS, koji računa sličnost po formuli:
+dok se funkcija za određivanje sličnosti menja. Kada pričamo o poređenju stringova pod time podrazumevamo poređenje fajlova, koji se tretiraju kao veliki stringovi. Logično, ovaj način poređenja ne čuva strukturu fajlova, kao ni programskog koda. Algoritmi koji koriste ovaj način detekcije su: FPDS \cite{mozgovoyetal}, koji računa sličnost po formuli:
 \begin{lstlisting}
 sim(F, G) = MatchedTokens(F, G) / TotalTokens(G)
 \end{lstlisting}
-YAP (jedan od prvih algoritama ove vrste, koristi poređenje liniju-po-liniju Levenštajnovim rastojanjem), RKR-GST (pravi pokrivač nepreklapajućih stringova koji sadrže maksimalan mogući broj tokena iz oba fajla, algoritam je NP kompletan pa zavisi od uspešnih heuristika, npr. duže podniske su vrednije od kraćih).
-Drveta parsiranja sa druge strane očuvavaju strukturu fajla, kako tekstualnog (poglavlja, pasusi itd.) tako i programskog (klase, funkcije itd.). Prednosti ovog metoda poređenja još nisu u potpunosti iskorišćene, jedan od algoritama koji to pokušava je Sim utility. On koristi poređenje stringova, ali ne nad celim fajlovima, već nad njihovim drvetima parsiranja, tj. parser prethodi algoritmu poređenja stringova.
-
+YAP \cite{wise} (jedan od prvih algoritama ove vrste, koristi poređenje liniju-po-liniju Levenštajnovim rastojanjem), RKR-GST koji je implementiran u sistemu YAP3 \cite{wise2} (pravi pokrivač nepreklapajućih stringova koji sadrže maksimalan mogući broj tokena iz oba fajla, algoritam je NP kompletan pa zavisi od uspešnih heuristika, npr. duže podniske su vrednije od kraćih).
+\par Drveta parsiranja sa druge strane očuvavaju strukturu fajla, kako tekstualnog (poglavlja, pasusi itd.) tako i programskog (klase, funkcije itd.). Prednosti ovog metoda poređenja još nisu u potpunosti iskorišćene, jedan od algoritama koji to pokušava je Sim utility \cite{gitchelltran}. On koristi poređenje stringova, ali ne nad celim fajlovima, već nad njihovim drvetima parsiranja, tj. parser prethodi algoritmu poređenja stringova.
 \section{Sakrivanje plagijarizma}
 \label{sec:sakrivanje plagijarizma}
 
@@ -94,42 +88,125 @@ Navedene tehnike sakrivanja plagijarizama prevazilaze se pretprocesiranjem. Pret
 \subsection{Pretprocesiranje teksta}
 \label{subsec:pretprocesiranje teksta}
 
-Tehnike pretprocesiranja teksta su WSD i Thesauri, i parseri. Menjanje reči sinonimima skoro je nemoguće otkriti bez pomoći računara. Na njima se taj problem rešava tokenizacijom, jedan od takvih softvera je i WordNet(Thesaurus). Ali, pre nego što se uradi zamena svih sinonima jednom rečju, prvo mora biti primenjem WSD (eng. ~{\em Word Sense Disambiguation}) metod koji određuje značenje reči u zadatom kontekstu, i tek onda može da bude primenjen tokenizator. Još jedna primena WSD metoda je pri otkrivanju plagijarizma ideje, kada se WSD koristi u kombinaciji sa drvetom konceptualnih klasa, ulazni fajl salje se na semantičku analizu i dobija se lista klasa, umesto originalnih reči. Lista se dalje procenjuje pomoću uobičajnih algoritama detekcije plagijarizama. \par Parseri se, sa druge strane, koriste kada je izmenjena struktura teksta (izmenjen redosled reči itd.). Oni dele rečenice na manje sekvence koji oslikavaju strukturu teksta, npr. parser može da prepozna homogene delove rečenice i da ih sortira leksikografski.
+Tehnike pretprocesiranja teksta su WSD i Thesauri, i parseri. Menjanje reči sinonimima skoro je nemoguće otkriti bez pomoći računara. Na njima se taj problem rešava tokenizacijom, jedan od takvih softvera je i WordNet \cite{fellbaum} (Thesaurus). Ali, pre nego što se uradi zamena svih sinonima jednom rečju, prvo mora biti primenjem WSD (eng.~{\em Word Sense Disambiguation}) metod koji određuje značenje reči u zadatom kontekstu, i tek onda može da bude primenjen tokenizator. Još jedna primena WSD metoda je pri otkrivanju plagijarizma ideje, kada se WSD koristi u kombinaciji sa drvetom konceptualnih klasa, ulazni fajl salje se na semantičku analizu i dobija se lista klasa, umesto originalnih reči. Lista se dalje procenjuje pomoću uobičajnih algoritama detekcije plagijarizama.
+
+\par Parseri se, sa druge strane, koriste kada je izmenjena struktura teksta (izmenjen redosled reči itd.). Oni dele rečenice na manje sekvence koji oslikavaju strukturu teksta, npr. parser može da prepozna homogene delove rečenice i da ih sortira leksikografski.
 
 \subsection{Pretprocesiranje programskog koda}
 \label{subsec:pretprocesiranje programskog koda}
 
 Pretprocesiranje programskog koda deli se na dve tehnike, tokenizaciju i parametrizovano poklapanje. Tokenizacija pretvara programski kod u niz tokena, time ga spuštajući na gradivni nivo (predstavljajući promenljive, pozive funkcija, naredbe itd.) i eliminišući većinu načina skrivanja. Složenost procesa tokenizacije je linearna, stoga ona ne utiče na kompleksnost finalnog algoritma, medjutim, samim procesom mogu da se izgube važne informacije o sličnostima dva programa. U cilju očuvanja te sličnosti tokenizator se koristi zajedno sa parametrizovanim poklapanjem. Parametrizovano poklapanje smatra dva koda identičnim ako jedan može da se dobije iz drugog primenom konačnog broja zamena identifikatora.
 
-\section{Implementacija algoritma za detekciju plagijarizama tekst}
-\label{sec:implementacija algoritma za detekciju plagijarizama tekst}
+\section{Implementacija algoritma za detekciju plagijarizama teksta}
+\label{sec:implementacija algoritma za detekciju plagijarizama teksta}
 
-Stopword n-grams.
+U ovom delu opisaćemo metod za detekciju pagijarizma tekstova na engleskom jeziku korišćenjem n-grama stopeči (eng. stopwords). Author ovog metoda je grčki profesora sa Egejskog univerziteta, Efstathios Stamatatos i metod je objavljen 2011. godine \cite{stamatatos}. Pre nego što krenemo sa opisom algoritma, objasimo prvo osnovne pojmove: n-gram predstavlja niz od n susednih stavki u tekstu, gde stavke mogu  biti karakteri ili reči, dok stoprečima smatramo najčešće korišćene reči nekog  jezika (u našem slučaju engleskog).  
 
-I tabele treba da budu u svom okruženju, i na njih je neophodno referisati se u tekstu. Na primer, u tabeli \ref{tab:tabela1} su prikazana različita poravnanja u tabelama.
+\par Stopreči su se pokazale veoma korisne u istraživanju teksta u slučajevima kad je  bitniji stil pisanja od sardržaja (npr. pripisivanju autorstva i detekcije žanra). Pa tako i Efstathios Stamatatos predstavlja novi metod detekcije plagijarizma  koji je zasnovan isključivo na strukturnim informacijama. Umesto da eliminiše  stopreči, kao što je uobičajena praksa, iz teksta eliminiše sve ostale tokene i metod  bazira na preostalom nizu stopreči. Najčešći način plagiranja je zamena reči i izraza sinonimima. Pošto su stopreči nezavisne od sadržaja i ne nose nikakve  semantičke informacije, sekvence stopreči često ostaju nepromenjene prilikom manjih izmena teksta.   
+
+\subsection{Opis algoritma}
+\label{subsec:opis algoritma}
+
+Autor je metod podelio na tri dela. Uprvom delu se određuje da li je sumnjivi  dokument plagijat ili ne. Nakon toga, trebalo bi pronaći sve plagijarizovane delove,  odrediti njihove granice i u sumnjivom i u izvornim dokumentima. Na kraju je pozeljno  za svaki  pagijarizovani deo koji smo pronasli odrediti koeficijent plagijarizma.\cite{stamatatos} 
+
+\par Reprezentacija teksta se zasniva na n-gramima stopreči (SWNG - stopword n-gram). Za dati dokument i listu stopreči tekst dokumenta se transformiše na sledeći nacin: prvo se velika slova  prevedu u mala, zatim se vrši tokenizacija i svi tokeni koji se na nalaze u  listi stopreči se izbacuju, na kraju se grade n-grami. Ovaj skup n-grama stopreči nazivamo profil dokumenta - \(P(n,d)\). 
+
+\par Efstathios Stamatatos kao stopreči koristi pedeset najčešće korišćenih reči engleskog jezika \ref{tab:tabela} prema Britanskom nacionalnom korpusu. 
 
 \begin{table}[h!]
 \begin{center}
-\caption{Razlčita poravnanja u okviru iste tabele ne treba koristiti jer su nepregledna.}
-\begin{tabular}{|c|l|r|} \hline
-centralno poravnanje& levo poravnanje& desno poravnanje\\ \hline
-a &b&c\\ \hline
-d &e&f\\ \hline
+\caption{50 najčešćih stopreči u engleskom jeziku.}
+\begin{tabular}{|l|l|l|l|l|} \hline
+1. the & 11. with & 21. are & 31. or & 41. her \\ \hline
+2. of & 12. he & 22. not & 32. an & 42. n't \\ \hline
+3. and & 13. be & 23. his & 33. were & 43. there \\ \hline
+4. a & 14. on & 24. this & 34. we & 44. can \\ \hline
+5. in & 15. i & 25. from & 35. their & 45. all \\ \hline
+6. to & 16. that & 26. but & 36. been & 46. as \\ \hline
+7. is & 17. by & 27. had & 37. has & 47. if \\ \hline
+8. was & 18. at & 28. which & 38. have & 48. who \\ \hline
+9. it & 19. you & 29. she & 39. will & 49. what \\ \hline
+10. for & 20. 's & 30. they & 40. would & 50. said \\ \hline
 \end{tabular}
-\label{tab:tabela1}
+\label{tab:tabela}
 \end{center}
 \end{table}
 
+\subsection{Odredjivanje kandidata}
+\label{subsec:odredjivanje kandidata}
 
-\section{Implementacija algoritma za detekciju plagijarizama programskog koda}
-\label{sec:implementacija algoritma za detekciju plagijarizama programskog koda}
+Prvi korak je izdvajanje skupa izvornih dokumenata, čiji elementi imaju delove koji su verovatno 
+plagijarizovani u sumnjivom dokument. Ovo zahteva poređenje sumnjivog dokumenta sa svim izvornim  dokumentima koje imamo kako bi se pronašla bilo kakva lokalna sličnost.
 
-Diff.
+
+\par Cilj je pronaći zajednički n-gram stopreči sumnjivog i izvornog dokumenta. Najvažnije je odrediti odgovarajuću vrednost za n, tj. odrediti kolika bi trebala da bude dužina niza uzastopnih stopreči da bi se otkrila sličnost između  sumnjivog i izvornog dokumenta. Recimo da je to vrednost n1, tada za svaki  zajednički n-gram između para dokumenata gde je \( n < n_{1} \)  poklapanje se smatra neznačajnim, dok za svaki zajednički n-gram između para dokumenata gde je \( n \geq n_{1} \)  sugeriše na plagijarizam. Vredonst n1 bi trebala biti relativno visoka, ali trebalo bi imati u vidu da pri znatim promenama teksta dužina niza uzastopnih reči neće biti velika. 
+
+\par Problem predstavlja slučaj kada se pronađe zajednički n-gram sumnjivog i izvornog dokumenta   koji pripadaju delovima koji su semantički različiti, sto uvećava broj lažno pozitivnih plagijarizovanih delova. To je obicno slučaj kada zajednički n-gram sadrži samo veoma česte stopreči, u engleskom jeziku, to su prvih šest najčešćih stopreči(the, of, and, a, in, to) i ‘s. 
+Da bi izbegao ovaj slucaj, autor metoda, uvodi ograničenje na sadržaj zajedničkog n-grama. Neka je \( C = \{the, of, and, a, in, to,‘s\} \) skup stopreči koje se obicno pojavljuju u slučajnim pogocima. Neka je \(D_{x}\) skup sumnjivih dokumenata koje zelimo da ispitamo, a \(D_{s}\) skup  izvornih dokumenata i da \(d_{x} \in D_{x}\) i \(d_{s} \in D_{s}\), dok su \(P(n_{1},d_{x})\) i \(P(n_{1},d_{s})\) odgovarajući profili ovih dokumenata koji sadrže n-grame stopreči dužine \(n_{1}\). Tada je detektovan plagijarizam ukoliko je zadovoljen sledeći kriterijum : 
+	\[ \exists g \in P(n_{1} ,d_{x}) \cup P(n_{1} ,d_{s} ): member(g,C)<n_{1}-1 \land maxseq(g,C)<n_{1}-2 \]
+gde je \( member(g,C)\) funkcija koja vraća broj stopreči n-grama \(g\) koji pripadaju skupu \(C\), a \(maxseq(g,C)\) funkcija koja vraća maksimalnu sekvencu stopreči u \(g\), koji pripadaju \(C\).
+
+\subsection{Odredjivanje granice delova}
+\label{subsec:odredjivanje granice delova}
+
+Nakon sto je pronađen skup izvornih dokumenata koji se poklapaju sa sumnjivim, potrebno je odrediti granice sličnih delova  teksta u svakom od ovih 
+dokumenata. Neka je \( D_{rx} \subseteq D_{s} \) skup dokumenata izdvojenih u prethodnom koraku. Nas cilj je  pronalaženje  svih \(g\)  takvih da je
+\(g\in P(n,d_{x}) \cup P(n,d_{s})\) pri čemu je \(d_{s} \in D_{rx}\), a nakon toga i građene sekvenci maksimane dužine od pronađenih \(g\),tako da svaka 
+dobijene sekvenca predstavlja plagijarizovani deo teksta. Granice delova nam predstavljaju početni i krajnji n-grami u dobijenim sekvencama.  
+
+\par Poklapanje n-grama sumnjivog i izvornog dokumenta može se predstaviti dijagramom rasipanja. Na slici (\ref{fig:slika1}) prikazan je  primer  
+doslovnog plagijarizma, kao i primer plagijarizma nastalog izmenama izvornog dokumenta (\ref{fig:slika2}). Broj praznina i grupa na dijagramu rasipanja 
+zavisi od vrednosti n, tj. reda n-grama korišćenog ukreiranju profila dokumenata. Što je n veće, imaćemo više praznina i grupa.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[natwidth=520, natheight=290, scale=0.5]{slika1.PNG}
+\end{center}
+\caption{Dijagram rasipanja poklopljenih n-grama u slučajevima doslovnog plagijarizma.}
+\label{fig:slika1}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[natwidth=525, natheight=294,scale=0.5]{slika2.PNG}
+\end{center}
+\caption{Dijagram rasipanja poklopljenih n-grama u slučajevima kada je plagijarizovani pasus pretežno modifikovan.}
+\label{fig:slika2}
+\end{figure}
+
+\par U prethodnom koraku, da bi utvrdio sličnosti između para dokumenata, author je koristio duže n-grame (reda \(n_{1}\) ), ali za određivanje granica potrebni su mu kraći n-grami (reda \(n_{2} < n_{1}\) ) da bi imao detaljnije poređenje. I ovde se dodaje uslov za izbegavanje  slučajnih poklapanja n-grama, samo što je uslov malo blaži da bi praznine između zajdničkih n-gram bile manje. Neka su \(P(n_{2}, d_{x})\) i \(P(n_{2}, d_{s})\) profili sumnjivog i izvornog dokumenta koji sadrže \(n_{2}\)-grame stopreči. Zajdenički \(n_{2}\)-gram \(g\) je pronađen ako je zadovoljen sledeći uslov:
+ \[g \in P(n_{2} ,d_{x}) \cup P(n_{2} ,d_{s} ): member(g,C)<n_{2}\]
+Neka je \(M(d_{x},d_{s})\) skup zajedničkih n-grama između profila P\((n_{2},d_{x})\) i \(P(n_{2},d_{s})\). Na primer, ukoliko je \((17,9) \in M\), to 
+znaci da sedamnaesti \(n_{2}\)-gram u \(d_{x}\)odgovara devetom \(n_{2}\)-gram u \(d_{s}\). Članovi skupa \(M\) su poređani na osnovi prvog pojavljivanja u 
+tekstu. Skup \(M\) možemo podeliti na dva dela \(M_{1}\) i \(M_{2}\), tako da odovaraju, redom, sumnjivom i izvornom dokumentu. Uzastopne vrednosti u 
+\(M_{1}\) su rastuće dok u \(M_{2}\) mogu biti  i opadajuće. Granice plagijarizovanih delova teksta povezane su sa velikim promenama susednih vrednosti u 
+skupovima \(M_{1}\) i \(M_{2}\), što se moze videti na slikama \ref{fig:slika1} \ref{fig:slika2}.
+
+\par Pri određivanja granica problem nam može predstavljati slučaj kada imamo više plagijarizovanih delova teksta koja su relativno  blizu, dok su 
+odgovarajući originalni delovi u izvornom dokumentu udaljeni, kao i suprotno. U opisu metoda, predloženo je sledeće rešenje \cite{stamatatos} : Prvo odrediti početni 
+skup granica u sumnjivom dokumentu, tj. podeliti skup M na osnovu rezlika susednih vrednosti u M1, pri čemu su dozvoljene manje praznine. Zatim, granice 
+u izvornom dokumentu odreditio tako što se dobijeni  skupovi podele na osnovu razlika susednih vrednosti u M2, gde bi takođe trebalo dozvoliti manje 
+praznine. I na kraju konačni  skup granica u sumnjivom dokumentu odrediti na osnovu dobijenih granica u izvornom dokumentu.    
+
+\subsection{Odredjivanje koeficijenta plagijarizma}
+\label{subsec:odredjivanje koeficijenta plagijarizma}
+
+Svaka detekcija plagijarizma može se predstaviti kao uređena četvroka \( <t_{x}, d_{x}, t_{s}, d_{s}>\), gde \(t_{x}\) predstavlja  plagijrarizovan deo teksta u sumnjivom 
+dokument \(d_{x}\), koji odgovara delu teksta \(t_{s}\) u izvornom dokumentu \(d_{s}\). Da bi odredio  koeficijent plagijarizma, autor metoda, koristi karakterske n-grame. 
+Prvo se vrši normalizacija delova \(t_{x}\) i \(t_{s}\), tako što se  sva velika slova zamene malim i izbace svi interpukcijski znaci. Zatim se sličnost između njih
+računa po sledećoj formuli:
+\[ Sim(t_{x},t_{s}) = \frac{|P_{c}(n_{c},t_{x}) \cap P_{c}(n_{c},t_{s})|}{max(|P_{c}(n_{c},t_{x})|,|P_{c}(n_{c},t_{s})|)} \]			
+gde su \(P_{c}(n_{c},t_{x})\) i \(P_{c}(n_{c},t_{s})\) karakterski \(n_{c}\)-grami profili delova \(t_{x}\) i \(t_{s}\). Izbor vredonsti za \(n_{c}\) zavisi od toga koliko želimo da merenje bude fleksibilno. Što su duži karakterski n-grami to je veća šansa da se izmene neće detektovati kao plagijarizam.
+
+\subsection{Prednosti, rezultati i parametri}
+\label{subsec:Prednosti, rezultati i parametri}
+
+Eksperimentalo utrvđene vrednost za veličine parametara, rezultati testiranja... 
 
 \section{Zaključak}
 \label{sec:zakljucak}
 
-Zaključak. 
+Svakim danom broj dokumenata javno dostupnih je sve veći, a samim tim i broj plagijarizama. Uporedo, razvijaju se i algoritmi za detekciju prlagijarizama kako teksta, tako i programskog koda. U ovom tekstu spomenuli smo neke od tih algoritama i detaljije opisali algoritam grčkog profesora Efstathios Stamatatos zasnovan na n-gramima stopreči za detekciju plagijarizma teksta. Ovaj algoritam je zaniljiv jer uvodi jedan oni pritup, ali i sadrži u sebi neke prethodne. Trebalo bi pokušati modifikovati algoritam i primeniti ga na programskom kodu. 
 
 
 \addcontentsline{toc}{section}{Literatura}
@@ -141,6 +218,5 @@ Zaključak.
 \section{Dodatak}
 
 Pored ovog rada, u prilogu se nalaze i izvorni kodovi algoritama koji su implementirani.
-
 
 \end{document}
