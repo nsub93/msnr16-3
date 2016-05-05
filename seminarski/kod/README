@@ -1,0 +1,24 @@
+ALGORITAM ZASNOVAN NA N-GRAMIMA - UPUTSTVO ZA KORIŠĆENJE PROGRAMA:
+
+-Algoritam je implementiran u programskom jeziku C++.
+-Program se standardno kompajlira sa: g++ -std="c++11" -o n-grams n-grams.cpp
+-Vrednosti za n (dužina n-grama) i m (granica koja dozvoljava male rupe u analiziranom segmentu) se učitavaju kao prvi i drugi 
+ argument komandne linije.
+-Dokumenti se učitavaju iz fajla koji se navodi kao treći argument komandne linije. Ime svakog dokumenta se nalazi u novom
+ redu. Prvi dokument predstavlja originalni dokument u odnosu na koga se proverava plagijarizam, ostali su dokumenti za koje
+ proveravamo da li su plagijarizmi.
+-Primer pokretanja ako hoćemo 8-grame, sa dozvoljenim rupama od 8 n-grama karaktera, i spisak dokumenata nam se nalazi u fajlu
+ documents.txt: ./n-grams 8 8 documents.txt
+-Rezultat predstavlja segmente (od početne do krajnje linije) u originalnom i plagiranom dokumentu koji su isti, kao i stepen, tj. 
+ procenat njihove sličnosti. Na kraju se ispisuje i ukupna sličnost između dokumenata, tj. koji procenat originalnog dokumenta je
+ prisutan u plagiranom.
+-Test primeri koji su dati su:
+	-original.txt -Originalni dokument
+	-100_plag.txt -Potpuni plagijat, ceo tekst je kopiran 
+	-80_plag.txt  -Ceo tekst je iskopiran, ali je jedan pasus izbačen
+	-60_plag.txt  -Ceo tekst je iskopiran, ali su dva pasusa izbačena
+	-40_plag.txt  -Ceo tekst je iskopiran, ali su tri pasusa izbačena
+	-20_plag.txt  -Ceo tekst je iskopiran, ali su četiri pasusa izbačena
+	-modified_plag.txt -Ceo tekst je iskopiran, a zatim je iz svakog pasusa obrisano ili modifikovano nekoliko rečenica
+	-not_plag.txt -Potpuno drugačiji tekst, koji nije plagijat
+

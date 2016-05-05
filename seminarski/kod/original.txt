@@ -1,0 +1,81 @@
+According to Hannabuss (2001), plagiarism is the “unauthorized use or close imitation of the
+ideas and language/expression of someone else and involves representing their work as your
+own”. Given the rapid growth of online publishing of text, the act of plagiarism becomes
+easier than ever. The problem of plagiarism is particularly evident in journalism (i.e.,
+newspapers, blogs) and academia (i.e., student reports, theses) (Clough, 2003). In such cases
+significant parts or even entire documents are plagiarized from a single or multiple sources
+(i.e., patchwork plagiarism). While many plagiarism cases are easy to be found by human
+readers, the great volumes of suspicious and source texts demand automatic plagiarism
+detection tools to facilitate this process.
+There are several plagiarism types according to the similarity of the plagiarized passage with
+the source document. The verbatim (aka copy-paste) case regards the direct copying of a
+passage from a source document. However, in most of the cases, plagiarists attempt to hide
+the similarity with the original document by modifying the plagiarized passage. This can be
+done by removing, adding, or replacing words/phrases and rewriting short parts of the passage
+affecting its syntax. A more difficult case is when the plagiarized and the source document
+may share the same ideas but the expressions and the language are different. Finally, the
+plagiarized and source documents may be written in different natural languages. Provided the
+availability of machine translation tools, this process is facilitated (Potthast, Barrón-Cedeño,
+Stein, & Rosso, 2011).
+Automatic plagiarism detection comprises several tasks. The default scenario (aka external
+plagiarism detection) regards the identification of passages in suspicious documents as likely
+plagiarized and associate these passages with certain passages of source documents in a given
+reference collection. Intrinsic plagiarism detection considers the case where no reference
+collection is available and the likely plagiarized passages in a suspicious document have to be
+extracted based on stylistic inconsistencies (Stamatatos, 2009). This task has many
+similarities with the authorship verification problem (Stein, Lipka, & Prettenhofer, 2011).
+Cross-lingual plagiarism detection deals with the case where the suspicious and source
+documents are written in different natural languages (Potthast, Barrón-Cedeño, Stein, &
+Rosso, 2011). Text reuse or near-duplicate detection is associated with plagiarism detection
+since it attempts to find documents that share most of their content and are derivatives of an
+original source (Hoad & Zobel, 2003; Bendersky & Croft, 2009). However, it examines
+similarity on the document level. Local text reuse or partial-duplicate detection is closer to
+plagiarism detection where a very short passage may be copied in a long document (Seo &
+Croft, 2008; Zhang, Zhang, Yu, & Huang, 2010). In this task, the similarity is considered
+legitimate, so usually there is no attempt to hide it. As a result, it resembles the verbatim case
+of plagiarism detection.
+One major issue in plagiarism detection is efficiency (Schleimer, Wilkerson, & Aiken, 2003;
+Stein & Meyer zu Eissen, 2006). The suspicious documents should be compared with any
+document in the reference collection which may be very large (i.e., the whole indexed Web).
+Therefore, similarity estimation between a pair of documents should be based on simple
+measures. Additionally, they should be able to capture local similarities where only a likely
+short passage is common in both documents. Given that the plagiarized and the original
+passages may not be exactly the same in case the plagiarist performed some kind of
+paraphrasing, the information used to represent texts should capture the similarity even when
+most of the words and word ordering are different (Gustafson, Pera, & Ng, 2008). Existing
+approaches in plagiarism detection are based on sequences of words or characters to represent
+texts (Schleimer, et al., 2003; Lyon, Malcolm, & Dickerson, 2001; Barrón-Cedeño & Rosso,
+2009; Hoad & Zobel, 2003). Since the content information is considered more important, very
+frequent words conveying no meaning (i.e., stopwords) are usually excluded (Gustafson, et
+al., 2008; Hoad & Zobel, 2003; Chowdhury, Frieder, Grossman, & McCabe, 2002; Potthast,
+2Barrón-Cedeño, Eiselt, Stein, & Rosso, 2010) or used to identify the position of important
+content terms (Theobald, Siddharth, & Paepcke, 2008).
+It is a common practice in Information Retrieval (IR) to discard stopwords since they increase
+the size of index with many postings, corresponding to their appearances in documents.
+According to the rule of 30, the 30 most common words account for (roughly) 30% of the
+word tokens in a corpus (Manning, Raghavan, & Schütze, 2008). However, efficient index
+compression methods can considerably decrease the size required by these postings.
+Moreover, the elimination of stopwords makes phrase queries more difficult or even
+impossible to be processed. As a result, modern IR systems, including many Web search
+engines, adopt full-text indexing (Manning, et al., 2008). Stopwords have been proved to be
+extremely useful in text mining tasks including authorship attribution (Arun, Suresh, &
+Madhavan, 2009) and text-genre detection (Stamatatos, Fakotakis, & Kokkinakis, 2000)
+where the aim is to represent style rather than content. In plagiarism detection, it has been
+demonstrated that stopword removal considerably hurts the performance (Ceska, & Fox,
+2009).
+In this paper, we propose a novel plagiarism detection method that takes full advantage of
+stopword occurrences in texts. Instead of following the common practice of eliminating
+stopwords, the proposed method eliminates all the other tokens and is entirely based on the
+remaining stopword sequences. Therefore, it is a method based exclusively on structural
+information rather than content information. We show that stopword n-grams are able to
+capture syntactic similarities between suspicious and original documents and they can be used
+to detect the plagiarized passage boundaries. Results on a publicly-available corpus
+demonstrate that the performance of the proposed approach is competitive when compared
+with the best reported results on the same corpus. More importantly, our method achieves
+significantly better results when dealing with difficult plagiarism cases where the plagiarized
+passages are highly modified and most of the words or phrases have been replaced with
+synonyms.
+The rest of this paper is organized as follows. The next section describes previous related
+work. Section 3 presents the proposed method in detail. The experimental settings and results
+are included in Section 4 while the conclusions drawn from this study and suggested future
+work directions are given in Section 5.

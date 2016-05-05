@@ -1,0 +1,8 @@
+original.txt
+100_plag.txt
+80_plag.txt
+60_plag.txt
+40_plag.txt
+20_plag.txt
+modified_plag.txt
+not_plag.txt

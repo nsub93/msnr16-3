@@ -1,0 +1,16 @@
+In this paper, we propose a novel plagiarism detection method that takes full advantage of
+stopword occurrences in texts. Instead of following the common practice of eliminating
+stopwords, the proposed method eliminates all the other tokens and is entirely based on the
+remaining stopword sequences. Therefore, it is a method based exclusively on structural
+information rather than content information. We show that stopword n-grams are able to
+capture syntactic similarities between suspicious and original documents and they can be used
+to detect the plagiarized passage boundaries. Results on a publicly-available corpus
+demonstrate that the performance of the proposed approach is competitive when compared
+with the best reported results on the same corpus. More importantly, our method achieves
+significantly better results when dealing with difficult plagiarism cases where the plagiarized
+passages are highly modified and most of the words or phrases have been replaced with
+synonyms.
+The rest of this paper is organized as follows. The next section describes previous related
+work. Section 3 presents the proposed method in detail. The experimental settings and results
+are included in Section 4 while the conclusions drawn from this study and suggested future
+work directions are given in Section 5.

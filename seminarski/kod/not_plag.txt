@@ -1,0 +1,62 @@
+The majority of approaches to plagiarism detection adopt the same architecture (Potthast,
+Barrón-Cedeño, Eiselt, Stein, & Rosso, 2010). First, to improve efficiency in large document
+collections, for each suspicious document a small set of candidate source documents is
+retrieved. This set is either of predefined or variable size according to the similarity between
+the documents. Then, a more detailed analysis between the suspicious document and each of
+the retrieved documents provides the requested passage boundaries. Finally, a post-processing
+step checks these detections and removes or merges some of them.
+In order to detect the degree of similarity between documents, two basic approaches have
+been proposed. The first follows the typical IR methodology that considers the suspicious
+document (or parts of the document) as a query and attempts to rank documents in the
+reference collection according to their similarity with the query (Shivakumar & Garcia-
+Molina, 1995; Hoad & Zobel, 2003; Gustafson, et al., 2008; Muhr, Kern, Zechner, &
+Granitzer, 2010). The similarity measures take into account relative word frequencies,
+document frequencies, and document lengths (Metzler, Bernstein, Croft, Moffat, & Zobel,
+2005) while stopwords are usually discarded (Hoad & Zobel, 2003; Gustafson, et al., 2008).
+To take into account word substitutions by synonyms Gustafson et al. (2008) proposes the use
+of word-correlation factors that measure frequency of co-occurrence and relative distance
+between pairs of terms in Wikipedia documents. The syntactic structure of sentences is more
+3robust in cases of paraphrasing the plagiarized passages (Uzuner, Katz, & Nahnsen, 2005) but
+the required syntactic analysis considerably harms the efficiency.
+The second basic family of approaches relies on document fingerprints comprising hashes of
+fixed-length chunks (aka shingles) in documents (Brin, Davis, & Garcia-Molina, 1995; Lyon,
+et al., 2001; Seo & Croft, 2008; Schleimer, et al., 2003; Stein & Meyer zu Eissen, 2006).
+Either the complete set of chunks can be included in the document fingerprint (full
+fingerprinting) to optimize effectiveness or a chunk selection method can be applied to
+decrease storage requirements and optimize efficiency (Schleimer, et al., 2003). Some
+approaches define chunks so that to capture information about the content and the structure of
+a short piece of text. Usually they are character n-grams (Schleimer, et al., 2003), word n-
+grams (Lyon, et al., 2001; Barrón-Cedeño & Rosso, 2009) or sentences (Gustafson, et al.,
+2008; Zhang, et al., 2010). Word n-grams can be sorted to be more flexible in small changes
+between the plagiarized and the source passages, e.g., the phrases „plagiarism detection in
+documents‟ and „detection of plagiarism in documents‟ share the same sorted word 3-gram
+after the removal of short words (Kasprzak, & Brandejs, 2010). Theobald, et al., (2008) use
+stopword positions to identify useful chains of content words in web pages. Chowdhury, et al.
+(2002) eliminate stopwords and infrequently occurring terms and considers a single chunk
+comprising the remaining content words. In contrast, Basile, Benedetto, Caglioti, Cristadoro,
+& Esposti (2009) consider chunks that are based exclusively on structural information (i.e.,
+word-length sequences).
+Provided a suspicious document is found to be similar with a source document, a scatter plot
+of the positions of all the matches found between the two documents can reveal the
+approximate passage boundaries (Zhang, et al., 2010; Zou, Long, & Ling, 2010). This
+resembles the detection of similarity in DNA sequences (Church & Helfman, 1993) and the
+procedure of mapping bitexts, i.e., texts available in two languages (Melamed, 1999). In case
+of verbatim plagiarism or partial-duplicate detection, these passages will be straight diagonal
+lines in the scatter plot. To detect such passage boundaries, algorithms for finding diagonals
+of maximal length are appropriate (Zhang, et al., 2010). However, in cases when the
+plagiarized passage is modified there is noise in the diagonal lines. Essentially, a cluster of
+matches is produced and it is usual to have small gaps between adjacent areas that correspond
+to the same passage. To solve this problem, several methods have been proposed including
+sets of heuristic rules to identify and merge adjacent passages (Kasprzak, & Brandejs, 2010;
+Basile, et al., 2009; Kolak & Schilit, 2008), Monte Carlo optimization to join adjacent
+matches (Grozea, Gehl, & Popescu, 2009), and application of clustering methods (Zou, et al.,
+2010). Although this kind of analysis has to be performed for relatively few source documents
+per suspicious document, it can harm the efficiency of the approach when its computational
+cost is high.
+After the detection of passage boundaries, the post-processing step is used to filter the passage
+detections and eliminate or merge cases of short passages and overlapping or ambiguous (e.g.,
+indicating the same plagiarized passage and different source passages) detections (Kasprzak,
+& Brandejs, 2010; Mhur, et al., 2010; Zou, et al., 2010; Kolak & Schilit, 2008). A final
+verification of similarity between the passages in the suspicious and the source documents has
+also been proposed (Muhr, et al., 2010). The post-processing step is especially important for
+improving the precision of the plagiarism detection methods.
